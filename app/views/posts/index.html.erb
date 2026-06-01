@@ -1,0 +1,10 @@
+<h1>みんなのおはなし</h1>
+
+<% @posts.each do |post| %>
+  <p><%= post.user.name %></p>
+  <p><%= post.content %></p>
+<% end %>
+
+<p>
+  <%= link_to "自分もおはなしする！", new_post_path %>
+</p>

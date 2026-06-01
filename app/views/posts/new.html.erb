@@ -1,0 +1,22 @@
+<h1>おはなししよう！</h1>
+
+<% if @post.errors.any? %>
+  <div>
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @post do |f| %>
+  <div>
+    <p><%= f.label :content, "おはなし" %></p>
+    <p><%= f.text_area :content %></p>
+  </div>
+
+  <div>
+    <%= f.submit "これでけってい！" %>
+  </div>
+<% end %>
