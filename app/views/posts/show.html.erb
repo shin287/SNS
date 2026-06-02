@@ -1,0 +1,35 @@
+<h1><%= @post.user.name %></h1>
+
+<p><%= @post.content %></p>
+
+<hr>
+
+<% @replies.each do |reply| %>
+  <div>
+    <p><%= reply.user.name %></p>
+    <p><%= reply.content %></p>
+  </div>
+<% end %>
+
+<hr>
+
+<h2>このおはなしについて会話する</h2>
+
+<% if @reply.errors.any? %>
+  <ul>
+    <% @reply.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: [@post, @reply] do |f| %>
+  <div>
+    <p><%= f.label :content, "おはなし" %></p>
+    <p><%= f.text_area :content %></p>
+  </div>
+
+  <%= f.submit "これでけってい！" %>
+<% end %>
+
+<%= link_to "もどる", posts_path %>

@@ -1,6 +1,6 @@
-class Post < ApplicationRecord
+class Reply < ApplicationRecord
   belongs_to :user
-  has_many :replies
+  belongs_to :post
 
   validates :content, presence: { message: "を入力してください" }
 end

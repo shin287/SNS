@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root "home#top"
-  resources :posts, only: [:index, :new, :create]
+
+  resources :posts, only: [:index, :show, :new, :create] do
+    resources :replies, only: [:create]
+  end
+
   resources :users, only: [:new, :create]
 
   get "login", to: "sessions#new"

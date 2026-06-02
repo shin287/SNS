@@ -1,8 +1,12 @@
 <h1>みんなのおはなし</h1>
 
 <% @posts.each do |post| %>
-  <p><%= post.user.name %></p>
-  <p><%= post.content %></p>
+  <%= link_to post_path(post) do %>
+    <div>
+      <p><%= post.user.name %></p>
+      <p><%= post.content %></p>
+    </div>
+  <% end %>
 <% end %>
 
 <p>
