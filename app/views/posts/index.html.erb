@@ -2,13 +2,13 @@
 
 <% @posts.each do |post| %>
   <%= link_to post_path(post) do %>
-    <div>
+    <div class="indexPost">
       <p><%= post.user.name %></p>
       <p><%= post.content %></p>
     </div>
   <% end %>
 <% end %>
 
-<p>
+<p class="btn">
   <%= link_to "自分もおはなしする！", new_post_path %>
 </p>
