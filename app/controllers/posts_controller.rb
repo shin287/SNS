@@ -1,6 +1,14 @@
 class PostsController < ApplicationController
+  before_action :require_login, only: [:new, :create]
+
   def index
     @posts = Post.all
+  end
+
+  def show
+    @post = Post.find(params[:id])
+    @reply = Reply.new
+    @replies = @post.replies
   end
 
   def new
@@ -8,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.new(post_params)
+    @post = current_user.posts.build(post_params)
 
     if @post.save
       redirect_to posts_path
@@ -18,6 +26,12 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def require_login
+    unless current_user
+      redirect_to login_path, alert: "ログインしてください"
+    end
+  end
 
   def post_params
     params.require(:post).permit(:content)
