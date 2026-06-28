@@ -9,6 +9,8 @@
   <% end %>
 <% end %>
 
-<p class="btn">
-  <%= link_to "自分もおはなしする！", new_post_path %>
-</p>
+<% if current_user %>
+  <%= link_to "自分もおはなしする！", new_post_path, class: "btn" %>
+<% else %>
+  <%= link_to "ログインしておはなしする！", login_path, class: "btn" %>
+<% end %>

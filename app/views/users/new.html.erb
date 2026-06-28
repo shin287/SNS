@@ -11,27 +11,27 @@
 <% end %>
 
 <%= form_with model: @user do |f| %>
-  <div>
-    <p><%= f.label :name, "お名前" %></p>
-    <p><%= f.text_field :name %></p>
+  <div class="formBox">
+    <p class="new"><%= f.label :name, "お名前" %></p>
+    <p class="newText"><%= f.text_field :name, class: "newTextIn" %></p>
+  </div>
+
+  <div class="formBox">
+    <p class="new"><%= f.label :email, "メールアドレス" %></p>
+    <p class="newText"><%= f.email_field :email, class: "newTextIn" %></p>
+  </div>
+
+  <div class="formBox">
+    <p class="new"><%= f.label :password, "パスワード" %></p>
+    <p class="newText"><%= f.password_field :password, class: "newTextIn" %></p>
+  </div>
+
+  <div class="formBox">
+    <p class="new"><%= f.label :password_confirmation, "パスワード（確認用）" %></p>
+    <p class="newText"><%= f.password_field :password_confirmation, class: "newTextIn" %></p>
   </div>
 
   <div>
-    <p><%= f.label :email, "メールアドレス" %></p>
-    <p><%= f.email_field :email %></p>
-  </div>
-
-  <div>
-    <p><%= f.label :password, "パスワード" %></p>
-    <p><%= f.password_field :password %></p>
-  </div>
-
-  <div>
-    <p><%= f.label :password_confirmation, "パスワード（確認用）" %></p>
-    <p><%= f.password_field :password_confirmation %></p>
-  </div>
-
-  <div>
-    <%= f.submit "登録する" %>
+    <%= f.submit "登録する", class: "btn" %>
   </div>
 <% end %>

@@ -1,13 +1,15 @@
 <h1><%= @post.user.name %></h1>
 
-<p><%= @post.content %></p>
+<p class="showPost"><%= @post.content %></p>
 
 <hr>
 
 <% @replies.each do |reply| %>
+  <%= next unless reply.persisted? %>
+  
   <div>
-    <p><%= reply.user.name %></p>
-    <p><%= reply.content %></p>
+    <p class="showPostReply"><%= reply.user.name %></p>
+    <p class="showPostReply"><%= reply.content %></p>
   </div>
 <% end %>
 
@@ -24,12 +26,12 @@
 <% end %>
 
 <%= form_with model: [@post, @reply] do |f| %>
-  <div>
-    <p><%= f.label :content, "おはなし" %></p>
-    <p><%= f.text_area :content %></p>
+  <div class="formBox">
+    <p class="new"><%= f.label :content, "おはなし" %></p>
+    <p class="newText"><%= f.text_area :content, class: "newTextIn" %></p>
   </div>
 
-  <%= f.submit "これでけってい！" %>
+  <%= f.submit "これでけってい！", class: "btn" %>
 <% end %>
 
-<%= link_to "もどる", posts_path %>
+<%= link_to "もどる", posts_path, class: "back" %>
