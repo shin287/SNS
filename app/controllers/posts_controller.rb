@@ -2,13 +2,13 @@ class PostsController < ApplicationController
   before_action :require_login, only: [:new, :create]
 
   def index
-    @posts = Post.all
+    @posts = Post.order(created_at: :desc)
   end
 
   def show
     @post = Post.find(params[:id])
     @reply = Reply.new
-    @replies = @post.replies
+    @replies = @post.replies.order(created_at: :desc)
   end
 
   def new
