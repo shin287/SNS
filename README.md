@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+チャット形式のSNSアプリです。
 
-Things you may want to cover:
+人間関係や時間に縛られず、気軽に会話や相談ができる場所をイメージして作成しました。
 
-* Ruby version
+## 機能
 
-* System dependencies
+- ユーザー登録
+- ログイン / ログアウト
+- 投稿機能
+- 返信機能
+- 投稿詳細ページ
+- 未ログイン時の投稿・返信制限
 
-* Configuration
+## 使用技術
 
-* Database creation
+- Ruby on Rails
+- HTML / CSS
+- SQLite
+- GIT / GitHub
 
-* Database initialization
+## 工夫した点
 
-* How to run the test suite
+ログインしていないユーザーが投稿や返信をできないように、画面表示だけでなくController側でも制御しました。
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+また、スマホ画面でも見やすくなるように、レスポンシブ対応も行いました。
