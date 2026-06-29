@@ -8,6 +8,8 @@ body{
 }
 
 h1{
+  margin: 0;
+  padding: 18px;
   text-align: center;
   font-size: 40px;
 }
@@ -166,12 +168,19 @@ h2{
   transition: 0.3s;
 }
 
+hr{
+  margin-top: 0;
+}
+
 .showPost{
   text-align: center;
   font-size: 22px;
+  margin: 0;
+  padding: 22px;
 }
 
 .showBox{
+  background-color: #999073;
   position: relative;
 }
 
