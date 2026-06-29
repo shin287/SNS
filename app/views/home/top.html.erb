@@ -1,6 +1,13 @@
 <h1>ねころびの宿</h1>
-
-<p class="top">ここはみんなでのんびり話せる場所だよ。</p>
-<p class="top">まったりしていってね。</p>
+  <div class="topDiv">
+    <div class="topText">
+      <p class="top">ここはみんなでのんびり話せる場所だよ。</p>
+      <p class="top">まったりしていってね。</p>
+      <p class="top">上にいくほど新しいものになってるよ。</p>
+    </div>
+    <div class="topImageBox">
+      <%= image_tag "cat.png", class: "topImage" %>
+    </div>
+  </div>
 
 <%= link_to "みんなの話を聴きに行く！", posts_path, class: "btn" %>
