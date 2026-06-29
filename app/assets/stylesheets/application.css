@@ -115,7 +115,6 @@ a{
 }
 
 .top{
-  text-align: center;
   font-size: 20px;
 }
 
@@ -210,6 +209,28 @@ h2{
   font-size: 20px;
 }
 
+.topImage{
+  width: 100%;
+  height: auto;
+}
+
+.topImageBox{
+  width: 20%;
+  text-align: center;
+}
+
+.topText{
+  width: 500px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.topDiv{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
 
 @media (max-width: 600px){
   body{
@@ -246,12 +267,23 @@ h2{
     text-align: center;
   }
 
+  .topText{
+    margin-top: 8px;
+    width: 340px;
+  }
+
   .top{
     width: 90%;
     text-align: center;
     margin: 8px auto;
-    font-size: 18px;
+    font-size: 16px;
     overflow-wrap: break-word;
+  }
+
+  .topImage{
+    width: 100%;
+    height: auto;
+    padding-top: 24px;
   }
 
   .btn{
