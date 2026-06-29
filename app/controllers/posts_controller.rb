@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :require_login, only: [:new, :create]
+  before_action :require_login, only: [:new, :create, :destroy]
 
   def index
     @posts = Post.order(created_at: :desc)
@@ -23,6 +23,13 @@ class PostsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @post = current_user.posts.find(params[:id])
+    @post.destroy
+
+    redirect_to posts_path, notice: "削除しました"
   end
 
   private

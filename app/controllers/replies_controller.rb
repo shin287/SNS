@@ -1,8 +1,8 @@
 class RepliesController < ApplicationController
-  before_action :require_login, only: [:create]
+  before_action :require_login, only: [:create, :destroy]
   def create
     @post = Post.find(params[:post_id])
-    @reply = @post.replies.new(reply_params)
+    @reply = @post.replies.build(reply_params)
     @reply.user = current_user
 
     if @reply.save
@@ -10,6 +10,18 @@ class RepliesController < ApplicationController
     else
       @replies = @post.replies
       render "posts/show" , status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:post_id])
+    @reply = @post.replies.find(params[:id])
+
+    if @reply.user == current_user
+      @reply.destroy
+      redirect_to post_path(@post), notice: "削除しました"
+    else
+      redirect_to post_path(@post), alert: "自分の以外は削除できません！"
     end
   end
 

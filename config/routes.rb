@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root "home#top"
 
-  resources :posts, only: [:index, :show, :new, :create] do
-    resources :replies, only: [:create]
+  resources :posts, only: [:index, :show, :new, :create, :destroy] do
+    resources :replies, only: [:create, :destroy]
   end
 
   resources :users, only: [:new, :create]
