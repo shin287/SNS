@@ -1,13 +1,22 @@
-<h1><%= @post.user.name %></h1>
+<div class="showBox">
+  <% if current_user && current_user == @post.user %>
+    <%= button_to "削除", post_path(@post), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: "showDelete" %>
+  <% end %>
+  <h1><%= @post.user.name %></h1>
 
-<p class="showPost"><%= @post.content %></p>
+  <p class="showPost"><%= @post.content %></p>
+</div>
+
 
 <hr>
 
 <% @replies.each do |reply| %>
   <%= next unless reply.persisted? %>
   
-  <div>
+  <div class="showBoxReply">
+    <% if current_user && current_user == reply.user %>
+      <%= button_to "削除", post_reply_path(@post, reply), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: "showDelete" %>
+    <% end %>
     <p class="showPostReply"><%= reply.user.name %></p>
     <p class="showPostReply"><%= reply.content %></p>
   </div>

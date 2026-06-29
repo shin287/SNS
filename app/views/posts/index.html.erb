@@ -1,12 +1,21 @@
 <h1>みんなのおはなし</h1>
 
+<% if current_user %>
+  <%= link_to "自分もおはなしする！", new_post_path, class: "btn" %>
+<% else %>
+  <%= link_to "ログインしておはなしする！", login_path, class: "btn" %>
+<% end %>
+
 <% @posts.each do |post| %>
-  <%= link_to post_path(post) do %>
-    <div class="indexPost">
+  <div class="indexPost">
+    <% if current_user && current_user == post.user %>
+      <%= button_to "削除", post_path(post), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: "delete" %>
+    <% end %>
+    <%= link_to post_path(post) do %>
       <p><%= post.user.name %></p>
       <p><%= post.content %></p>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 <% end %>
 
 <% if current_user %>

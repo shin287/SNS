@@ -19,6 +19,9 @@ header{
   width: 100%;
   min-height: 80px;
   background-color: #8ca18c;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 nav{
@@ -67,6 +70,23 @@ nav form{
   width: 80%;
   padding: 16px;
   margin: 16px auto;
+  position: relative;
+}
+
+.delete{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border-color: red;
+  border-radius: 16px;
+  background-color: #fff3cd;
+  color: red;
+  cursor: pointer;
+}
+
+.delete:hover,.showDelete:hover{
+  color: rgb(236, 94, 94);
+  border-color: rgb(236, 94, 94);
 }
 
 .indexPost p{
@@ -139,6 +159,7 @@ h2{
   justify-content: center;
   color: black;
   font-size: 18px;
+  padding-bottom: 24px;
 }
 
 .back:hover{
@@ -149,6 +170,25 @@ h2{
 .showPost{
   text-align: center;
   font-size: 22px;
+}
+
+.showBox{
+  position: relative;
+}
+
+.showDelete{
+  position: absolute;
+  top: 8px;
+  right: 80px;
+  border-color: red;
+  border-radius: 16px;
+  background-color: #fff3cd;
+  color: red;
+  cursor: pointer;
+}
+
+.showBoxReply{
+  position: relative;
 }
 
 .showPostReply{
@@ -169,6 +209,8 @@ h2{
   color: red;
   font-size: 20px;
 }
+
+
 @media (max-width: 600px){
   body{
     max-width: 100%;
